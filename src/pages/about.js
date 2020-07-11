@@ -5,16 +5,16 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const AboutPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>I am learning Gatsby</h1>
-    <p>Welcome on my first Gatsby site. Let's go to build it together.</p>
+    <SEO title="About" />
+    <h1>About</h1>
+    <p>This is about page.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Link to="/about/">Go to About page</Link> <br />
+    <Link to="/">Go to Home page</Link> <br />
   </Layout>
 )
 
-export default IndexPage
+export default AboutPage
