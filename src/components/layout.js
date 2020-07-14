@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import MainNav from "./mainnav"
 import "./layout.css"
 import "../styles/global.module.css"
 
@@ -27,13 +28,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <MainNav />
+      <div style={{ paddingLeft: "15px", paddingTop: "15px" }}>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

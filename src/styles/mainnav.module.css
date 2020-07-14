@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 25px;
+  background-color: coral;
+  height: 50px;
+}
+
+.nav li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav > li > a {
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+}
+
+.nav > li > a:hover {
+  color: white;
+}
