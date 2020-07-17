@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 // import styled from "styled-components"
+import GatsbyImage from "../components/gatsbyImage"
 
 // const NewWrapper = styled.div`
 //   border-radius: 1rem;
@@ -14,6 +15,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     {/* <NewWrapper> */}
+    <GatsbyImage />
     <h1>I am learning Gatsby</h1>
     <p>Welcome on my first Gatsby site. Let's go to build it together.</p>
     {/* </NewWrapper> */}

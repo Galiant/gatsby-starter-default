@@ -9,6 +9,8 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-css-customs`,
     `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,8 +18,6 @@ module.exports = {
         path: `${__dirname}/content/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
