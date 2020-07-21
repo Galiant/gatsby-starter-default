@@ -3,6 +3,16 @@ module.exports = {
     title: `Learning Gatsby`,
     description: `Using default starter to learn Gatsby`,
     author: `Antonijo Galic`,
+    menuLinks: [
+      {
+        name: `Home`,
+        link: `/`,
+      },
+      {
+        name: `About`,
+        link: `/about`,
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
