@@ -12,6 +12,10 @@ module.exports = {
         name: `About`,
         link: `/about`,
       },
+      {
+        name: `Blog`,
+        link: `/blog`,
+      },
     ],
   },
   plugins: [
@@ -26,6 +30,19 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/content/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Post`, // a fixed string
       },
     },
     {
