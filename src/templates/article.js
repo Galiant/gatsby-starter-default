@@ -6,7 +6,7 @@ export default ({ data }) => {
   const article = data.markdownRemark
   return (
     <Layout>
-      <div>
+      <article>
         <h2>{article.frontmatter.title}</h2>
         <p>by {article.frontmatter.author}</p>
         <p>
@@ -18,12 +18,12 @@ export default ({ data }) => {
           })}
         </p>
         <hr />
-      </div>
+        <div dangerouslySetInnerHTML={{ __html: article.html }} />
+        <hr />
+      </article>
     </Layout>
   )
 }
-
-export default Post
 
 export const query = graphql`
   query($slug: String!) {
