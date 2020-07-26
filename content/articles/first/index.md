@@ -1,6 +1,7 @@
 ---
 title: My first mdx post - Hello World!
 date: 2020-07-24
+subject: ["technology"]
 author: Antonijo
 published: true
 ---

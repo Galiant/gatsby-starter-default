@@ -47,6 +47,16 @@ const ArticleIndex = ({ data, pageContext, location }) => {
                     year: "numeric",
                   })}{" "}
                 </div>
+                <div>
+                  Filed under:{" "}
+                  {node.frontmatter.subject.map((subject, index) => [
+                    index > 0 && ", ",
+                    <Link key={index} to={`/subjects/${_.kebabCase(subject)}`}>
+                      {subject}
+                      {index}
+                    </Link>,
+                  ])}
+                </div>
                 <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
               </ConditionalWrapper>
             </li>
@@ -77,6 +87,7 @@ export const query = graphql`
             title
             date
             author
+            subject
           }
           fields {
             slug

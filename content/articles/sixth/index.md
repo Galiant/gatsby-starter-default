@@ -1,12 +1,12 @@
 ---
-title: My second mdx post!
-date: 2020-07-24
-subject: ["business"]
+title: My sixth mdx post!
+date: 2020-07-26
+subject: ["business", "technology"]
 author: Antonijo
 published: true
 ---
 
-### My second post!!
+### My sixth post!!
 
 Interactively reinvent standardized results without proactive technologies. Rapidiously scale seamless users and enabled communities. Synergistically benchmark technically sound core competencies vis-a-vis extensive web services. Appropriately underwhelm 2.0 portals with compelling strategic theme areas. Monotonectally engineer seamless web services after low-risk high-yield sources.
 
