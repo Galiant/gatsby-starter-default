@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
 import _ from "lodash"
 
 import Layout from "../components/layout"
@@ -10,26 +9,23 @@ import Pagination from "../components/pagination"
 const ConditionalWrapper = ({ condition, wrapper, children }) =>
   condition ? wrapper(children) : children
 
-const ArticleIndex = ({ data, pageContext, location }) => {
+const ArticleIndex = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
+  const { subject } = pageContext
+  console.log(pageContext)
+
+  let pageHeader = `Articles`
+  if (subject) {
+    pageHeader = `Filed under ${subject}:`
+  }
 
   return (
-    <Layout location={location}>
+    <Layout>
       <section>
-        <h2>Articles</h2>
+        <h2>{pageHeader}</h2>
         <ul>
           {posts.map(({ node }, index) => (
             <li key={index}>
-              {node.frontmatter.featimg && (
-                <figure>
-                  <Link to={node.fields.slug}>
-                    <Img
-                      fixed={node.frontmatter.featimg.childImageSharp.fixed}
-                      alt={node.frontmatter.title}
-                    />
-                  </Link>
-                </figure>
-              )}
               <ConditionalWrapper
                 // If featured image, wrap content in <div>.
                 condition={node.frontmatter.featimg}
@@ -53,7 +49,6 @@ const ArticleIndex = ({ data, pageContext, location }) => {
                     index > 0 && ", ",
                     <Link key={index} to={`/subjects/${_.kebabCase(subject)}`}>
                       {subject}
-                      {index}
                     </Link>,
                   ])}
                 </div>
@@ -63,9 +58,7 @@ const ArticleIndex = ({ data, pageContext, location }) => {
           ))}
         </ul>
       </section>
-      <hr />
       <Pagination pageContext={pageContext} />
-      <hr />
     </Layout>
   )
 }
@@ -73,8 +66,9 @@ const ArticleIndex = ({ data, pageContext, location }) => {
 export default ArticleIndex
 
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($subject: String!, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
+      filter: { frontmatter: { subject: { in: [$subject] } } }
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skip
       limit: $limit
@@ -86,21 +80,13 @@ export const query = graphql`
           frontmatter {
             title
             date
-            author
             subject
+            author
           }
           fields {
             slug
           }
         }
-      }
-    }
-    taxonomyQuery: allMarkdownRemark {
-      group(field: frontmatter___subject) {
-        nodes {
-          id
-        }
-        fieldValue
       }
     }
   }
